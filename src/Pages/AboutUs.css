@@ -1,0 +1,194 @@
+/* Offset for fixed navbar */
+.about-container {
+  padding-top: 80px;
+}
+
+/* Prevent content from hiding under navbar when scrolling */
+[id] {
+  scroll-margin-top: 90px;
+}
+
+/* Global Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global Container */
+.about-container {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f9fbfd 0%, #edf2f7 100%);
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  color: #222;
+  line-height: 1.8;
+  background-attachment: fixed;
+}
+
+/* Section Box Styling */
+.box {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  padding: 60px 50px;
+  margin-bottom: 70px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  border: 1px solid rgba(0, 74, 173, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a soft glow hover effect */
+.box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 45px rgba(0, 74, 173, 0.15);
+  border: 1px solid rgba(0, 74, 173, 0.2);
+}
+
+/* Elegant gradient border highlight */
+.box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 0%;
+  background: linear-gradient(to right, #004aad, #00bcd4);
+  transition: width 0.6s ease;
+  border-radius: 20px 20px 0 0;
+}
+
+.box:hover::before {
+  width: 100%;
+}
+
+/* Headings */
+.intro-text {
+  font-family: "Merriweather", serif;
+  color: #004aad;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.intro-text strong {
+  color: #002b5b;
+  font-size: 2.2rem;
+  background: linear-gradient(to right, #004aad, #00bcd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Decorative underline under headings */
+.intro-text::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 3px;
+  margin: 12px auto 0;
+  background: linear-gradient(to right, #004aad, #00bcd4);
+  border-radius: 5px;
+}
+
+/* Divider Lines */
+hr {
+  border: 0;
+  height: 2px;
+  width: 60%;
+  margin: 30px auto;
+  background: linear-gradient(to right, rgba(0, 74, 173, 0.3), rgba(0, 188, 212, 0.3));
+  border-radius: 5px;
+}
+
+/* Paragraph Text */
+p {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 18px 0;
+  text-align: justify;
+  transition: color 0.3s ease;
+}
+
+p:hover {
+  color: #111;
+}
+
+/* Highlighted Quotes */
+i {
+  display: block;
+  color: #333;
+  background: linear-gradient(135deg, #f1f6fc 0%, #e8f4fd 100%);
+  border-left: 5px solid #004aad;
+  padding: 15px 20px;
+  margin: 25px 0;
+  font-style: italic;
+  border-radius: 10px;
+  box-shadow: inset 0 0 12px rgba(0, 74, 173, 0.05);
+}
+
+/* Bullet Points */
+ul {
+  list-style: none;
+  margin: 25px 0;
+  padding-left: 0;
+}
+
+ul li {
+  background: #f9fbfe;
+  margin-bottom: 15px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  border-left: 5px solid #00bcd4;
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+}
+
+ul li:hover {
+  background: #e7f3ff;
+  border-left: 5px solid #004aad;
+  transform: translateX(5px);
+}
+
+/* Fade-Up Scroll Animation */
+.row {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle floating animation for hover */
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .about-container {
+    padding: 40px 15px;
+  }
+
+  .box {
+    padding: 35px 25px;
+  }
+
+  .intro-text strong {
+    font-size: 1.7rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}

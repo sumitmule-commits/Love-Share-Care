@@ -1,0 +1,432 @@
+/* ============ Home Page Modern Styles ============ */
+.home-container {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 30%, #e8f5e9, #f1f8f6, #e0f2f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Glowing ambient circles */
+.home-container::before,
+.home-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.6;
+  z-index: 0;
+}
+.home-container::before {
+  width: 500px;
+  height: 500px;
+  top: -100px;
+  left: -150px;
+  background: #a5d6a7;
+}
+.home-container::after {
+  width: 700px;
+  height: 700px;
+  bottom: -250px;
+  right: -200px;
+  background: #81c784;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  max-width: 1200px;
+  z-index: 1;
+  position: relative;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.1rem;
+  color: #4f4f4f;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Main Heading */
+.main-heading {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #1b4332;
+  margin-bottom: 3rem;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+/* Categories */
+.categories-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2.5rem;
+  justify-items: center;
+  margin: 0 auto 3rem;
+  max-width: 900px;
+}
+
+/* Category Circle */
+.category-circle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.category-circle img {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+/* Gradient glow behind image */
+.circle-glow {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  background: conic-gradient(from 180deg, #4caf50, #a5d6a7, #4caf50);
+  border-radius: 50%;
+  z-index: 1;
+  filter: blur(8px);
+  animation: spin 5s linear infinite;
+  opacity: 0.4;
+}
+
+/* Floating effect */
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Label */
+.category-label {
+  margin-top: 0.8rem;
+  background: white;
+  color: #2e2e2e;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.category-circle:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.category-circle:hover .circle-glow {
+  opacity: 0.8;
+}
+
+.category-circle:hover .category-label {
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  color: white;
+}
+
+/* CTA Button */
+.cta-button {
+  background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(46, 125, 50, 0.45);
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+}
+
+/* ========== Base Animations ========== */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+.fade-in-up {
+  animation: fadeIn 1s ease forwards 0.2s;
+}
+.fade-in-delay {
+  animation: fadeIn 1.2s ease forwards 0.4s;
+}
+
+/* ========== Category-Specific Animations ========== */
+
+/* 1. Animal - Cute bounce and wiggle */
+@keyframes animalBounce {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.15) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  75% {
+    transform: scale(1.15) rotate(-3deg);
+  }
+}
+
+.category-circle.animal:hover img {
+  animation: animalBounce 0.6s ease-in-out;
+  transform: scale(1.1);
+}
+
+.category-circle.animal:hover .category-label {
+  animation: wiggle 0.5s ease;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+/* 2. Medical - Pulse with heartbeat */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(1.15);
+  }
+  20%, 40% {
+    transform: scale(1.05);
+  }
+}
+
+.category-circle.medical:hover img {
+  animation: heartbeat 1s ease-in-out;
+}
+
+.category-circle.medical:hover .circle-glow {
+  background: conic-gradient(from 180deg, #ef5350, #e57373, #ef5350);
+  animation: pulsate 1s ease infinite;
+}
+
+@keyframes pulsate {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* 3. Emergency - Urgent shake/vibrate */
+@keyframes emergencyShake {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px) rotate(-2deg);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px) rotate(2deg);
+  }
+}
+
+.category-circle.emergency:hover img {
+  animation: emergencyShake 0.5s ease-in-out;
+}
+
+.category-circle.emergency:hover .circle-glow {
+  background: conic-gradient(from 180deg, #ff6b6b, #ffa07a, #ff6b6b);
+  filter: blur(12px);
+}
+
+/* 4. Education - Book flip/page turn */
+@keyframes bookFlip {
+  0% {
+    transform: perspective(400px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(400px) rotateY(180deg);
+  }
+  100% {
+    transform: perspective(400px) rotateY(360deg);
+  }
+}
+
+.category-circle.education:hover img {
+  animation: bookFlip 0.8s ease-in-out;
+}
+
+.category-circle.education:hover .category-label {
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 5. Business - Professional zoom and glow */
+@keyframes businessGrow {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    transform: scale(1.15) rotate(0deg);
+  }
+}
+
+.category-circle.business:hover img {
+  animation: businessGrow 0.6s ease-in-out;
+}
+
+.category-circle.business:hover .circle-glow {
+  background: conic-gradient(from 180deg, #2196f3, #64b5f6, #2196f3);
+  filter: blur(15px);
+}
+
+/* 6. Your Cause - Sparkle and rotate */
+@keyframes sparkleRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.15) rotate(180deg);
+    filter: brightness(1.3);
+  }
+  100% {
+    transform: scale(1.1) rotate(360deg);
+    filter: brightness(1);
+  }
+}
+
+.category-circle.your-cause:hover img {
+  animation: sparkleRotate 1s ease-in-out;
+}
+
+.category-circle.your-cause:hover .circle-glow {
+  background: conic-gradient(
+    from 180deg,
+    #9c27b0,
+    #ba68c8,
+    #ff4081,
+    #f48fb1,
+    #9c27b0
+  );
+  animation: spin 2s linear infinite, pulsate 1s ease infinite;
+}
+
+/* Additional sparkle effect */
+.category-circle.your-cause:hover::after {
+  content: "✨";
+  position: absolute;
+  font-size: 2rem;
+  animation: sparkle 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(360deg);
+  }
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2.5rem;
+  }
+
+  .category-circle img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .circle-glow {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cta-button {
+    padding: 0.9rem 2.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 2rem;
+  }
+
+  .categories-container {
+    grid-template-columns: 1fr;
+  }
+
+  .category-circle img {
+    width: 120px;
+    height: 120px;
+  }
+}
