@@ -1,0 +1,48 @@
+/* Footer.css */
+
+.footer {
+  background-color: #111827; /* dark gray */
+  color: #d1d5db; /* light gray text */
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.brand-name {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: #d1d5db;
+  border: 1px solid #6b7280;
+  border-radius: 50%;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.icon:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
